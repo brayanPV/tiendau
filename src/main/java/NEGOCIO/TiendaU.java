@@ -5,8 +5,10 @@
  */
 package NEGOCIO;
 
+import DAO.ClienteJpaController;
 import DAO.Conexion;
 import DAO.TiendaJpaController;
+import DTO.Cliente;
 import DTO.Tienda;
 import java.util.List;
 
@@ -19,13 +21,17 @@ public class TiendaU {
     Conexion con = Conexion.getConexion();
     TiendaJpaController tiendaDAO = new TiendaJpaController(con.getBd());
     List<Tienda> tiendas = tiendaDAO.findTiendaEntities();
+    ClienteJpaController clienteDAO = new ClienteJpaController(con.getBd());
+    List<Cliente> clientes = clienteDAO.findClienteEntities();
 
     //Integer id, String nombre, String lema, String descripcion, String email,String clave, String propietario, String facebook, String web, String imagen
     public boolean registrarTienda(String nombre, String lema, String descripcion, String email, String clave, String propietario, String facebook, String web, String imagen) {
         boolean exito = false;
         Tienda ti = new Tienda();
         ti = buscarTiendaPorEmail(email);
-        if (ti == null) {
+        Cliente cl = new Cliente();
+        cl = buscarClientePorEmail(email);
+        if (ti == null && cl == null) {
             try {
                 Tienda t = new Tienda();
                 t.setNombre(nombre);
@@ -43,6 +49,8 @@ public class TiendaU {
                 System.out.println(e.getMessage());
                 System.err.println(e.getMessage());
             }
+        } else {
+            System.err.println("Ese email no esta disponible");
         }
         return exito;
     }
@@ -51,6 +59,15 @@ public class TiendaU {
         for (Tienda t : tiendas) {
             if (t.getEmail().equalsIgnoreCase(email)) {
                 return t;
+            }
+        }
+        return null;
+    }
+
+    private Cliente buscarClientePorEmail(String email) {
+        for (Cliente c : clientes) {
+            if (c.getEmail().equalsIgnoreCase(email)) {
+                return c;
             }
         }
         return null;

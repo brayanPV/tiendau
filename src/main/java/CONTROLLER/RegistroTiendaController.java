@@ -33,10 +33,10 @@ public class RegistroTiendaController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try  {
-            
+        try {
+
             TiendaU t = new TiendaU();
-            
+
             String nombre = request.getParameter("inputNombre");
             String lema = request.getParameter("inputLema");
             String descripcion = request.getParameter("inputDescripcion");
@@ -46,17 +46,22 @@ public class RegistroTiendaController extends HttpServlet {
             String facebook = request.getParameter("inputFacebook");
             String sitio = request.getParameter("inputWeb");
             String imagen = request.getParameter("inputImagen");
-            
-            if(t.registrarTienda(nombre, lema, descripcion, email, clave, propietario, facebook, sitio, imagen)){
+
+            if (t.registrarTienda(nombre, lema, descripcion, email, clave, propietario, facebook, sitio, imagen)) {
+                response.setContentType("text/html");
+                PrintWriter pw = response.getWriter();
+                pw.println("<script type=\"text/javascript\">");
+                pw.println("alert('FELICIDADES HA REGISTRADO UNA TIENDA');");
+                pw.println("</script>");
                 request.getSession().setAttribute("exito", t);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 request.getSession().setAttribute("error", "F");
                 request.getRequestDispatcher("/JSP/ERROR/errrorInsertarTienda.jsp").forward(request, response);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             request.getSession().setAttribute("error", e.getMessage());
-                request.getRequestDispatcher("/JSP/ERROR/errrorInsertarTienda.jsp").forward(request, response);
+            request.getRequestDispatcher("/JSP/ERROR/errrorInsertarTienda.jsp").forward(request, response);
         }
     }
 
