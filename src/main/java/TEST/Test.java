@@ -49,6 +49,7 @@ public class Test {
         
         System.out.println("ACTUALIZAR TIENDA");
         Tienda tn = tDao.findTienda(4);
+        tn.setImagen("https://www.prensalibre.com/wp-content/uploads/2018/12/eee060b0-296f-4463-8429-542adef7bb6b.jpg?quality=82&w=760&h=430&crop=1S");
         tn.setDescripcion("HOLA ESTA ES LA NUEVA DESCRIPCION");
         tDao.edit(tn);
         
