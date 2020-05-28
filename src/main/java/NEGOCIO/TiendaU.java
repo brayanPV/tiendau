@@ -55,7 +55,17 @@ public class TiendaU {
         return exito;
     }
 
-    private Tienda buscarTiendaPorEmail(String email) {
+    public boolean login(String email, String clave) {
+        boolean exito = false;
+        Tienda ti = new Tienda();
+        ti = buscarTiendaPorEmail(email);
+        Cliente cl = new Cliente();
+        cl = buscarClientePorEmail(email);
+
+        return exito;
+    }
+
+    public Tienda buscarTiendaPorEmail(String email) {
         for (Tienda t : tiendas) {
             if (t.getEmail().equalsIgnoreCase(email)) {
                 return t;
@@ -64,7 +74,7 @@ public class TiendaU {
         return null;
     }
 
-    private Cliente buscarClientePorEmail(String email) {
+    public Cliente buscarClientePorEmail(String email) {
         for (Cliente c : clientes) {
             if (c.getEmail().equalsIgnoreCase(email)) {
                 return c;
