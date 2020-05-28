@@ -13,7 +13,7 @@
 	<title>Nuestra tienda virtual</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="css/registro.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/registro.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -25,43 +25,44 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Registro de Tienda</h3>
-              <form>
+              <form action="../RegistroTiendaController" method="POST">
                 <div class="form-label-group">
-                  <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" required autofocus>
+                  <input type="text" name="inputNombre" class="form-control" placeholder="Nombre" required autofocus>
                   <label for="inputNombre">Nombre</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="text" id="inputLema" class="form-control" placeholder="Lema" required autofocus>
+                  <input type="text" name="inputLema" class="form-control" placeholder="Lema" required autofocus>
                   <label for="inputLema">Lema</label>
                 </div>
                 <div class="form-label-group">
-                  <textarea id="inputDescripcion" class="form-control" placeholder="Descripcion" required autofocus></textarea>
+                  <textarea name="inputDescripcion" class="form-control" placeholder="Descripcion" required autofocus></textarea>
                   <label for="inputDescripcion">Descripción</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                   <label for="inputEmail">Email</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
                   <label for="inputPassword">Password</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="input" id="inputPropietario" class="form-control" placeholder="Propietario" required>
+                  <input type="input" name="inputPropietario" class="form-control" placeholder="Propietario" required>
                   <label for="inputPropietario">Propietario</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputFacebook" class="form-control" placeholder="Facebook" required>
+                  <input type="input" name="inputFacebook" class="form-control" placeholder="Facebook" required>
                   <label for="inputFacebook">Facebook</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputWeb" class="form-control" placeholder="Web" required>
+                  <input type="input" name="inputWeb" class="form-control" placeholder="Web" required>
                   <label for="inputWeb">Web</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputImagen" class="form-control" placeholder="Imagen" required>
+                    <label>La forma de subir la imagen es vinculandola</label>
+                  <input type="input" name="inputImagen" class="form-control" placeholder="Imagen" required>
                   <label for="inputImagen">Imagen</label>
                 </div>
 

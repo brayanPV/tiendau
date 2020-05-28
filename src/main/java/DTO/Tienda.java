@@ -119,6 +119,7 @@ public class Tienda implements Serializable {
         this.web = web;
         this.imagen = imagen;
     }
+    
     public Tienda(Integer id, String nombre, String lema, String descripcion, String email,String clave, String propietario, String facebook, String web, String imagen) {
         this.id = id;
         this.nombre = nombre;
