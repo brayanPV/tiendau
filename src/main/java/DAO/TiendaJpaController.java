@@ -29,6 +29,11 @@ public class TiendaJpaController implements Serializable {
     public TiendaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public TiendaJpaController(){
+        this.emf = Conexion.getEm();
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
