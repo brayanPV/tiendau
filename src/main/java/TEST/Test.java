@@ -28,7 +28,7 @@ public class Test {
         
         System.out.println("CREACION DE CLIENTE");
         ClienteJpaController cDao = new ClienteJpaController();
-        Cliente c = new Cliente(2,"brayan", "brayanstivenp578@gmil.com", "123456");
+        Cliente c = new Cliente("brayan", "brayanstivenp578@gmil.com", "123456");
         cDao.create(c);
         
         System.out.println("CREACION DE TIENDA");
